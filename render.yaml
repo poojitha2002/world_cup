@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: world-cup-betting
+    env: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
