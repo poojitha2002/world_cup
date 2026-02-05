@@ -2,9 +2,10 @@
 
 This app allows users to place a **100-coin bet** on a match winner and update the pick any number of times **until the match turns LIVE**. As soon as status becomes `LIVE`, bet edits are blocked server-side.
 
-## Why this storage choice?
-- **Production recommendation:** PostgreSQL (+ Redis cache) for strict transactional guarantees.
-- **Current implementation (local/demo):** JSON file storage (`data/db.json`) so it runs without external services.
+## Storage (updated)
+- **Current implementation:** SQLite relational DB (`data/db.sqlite`) with tables for users, sessions, matches, bets, and transactions.
+- This is significantly safer than JSON file storage for concurrent usage around ~200 users on a single app instance.
+- For horizontal scaling / multi-instance production, migrate to PostgreSQL.
 
 ## Key rules implemented
 - One bet per user per match.
@@ -25,13 +26,12 @@ You can wire either provider into `src/matchProvider.js`.
 
 ## Run locally
 ```bash
-npm install
 node src/server.js
 ```
 Open `http://localhost:3000`.
 
 ## Host on Render (quickest)
-This repository now includes `Dockerfile` + `render.yaml`.
+This repository includes `Dockerfile` + `render.yaml`.
 
 1. Push this repo to GitHub.
 2. Go to Render → **New +** → **Blueprint**.
@@ -40,11 +40,6 @@ This repository now includes `Dockerfile` + `render.yaml`.
 5. Set env var:
    - `GOOGLE_CLIENT_ID=your-google-oauth-client-id`
 6. Open the generated URL.
-
-### Important persistence note
-Current storage uses `data/db.json`. On most free hosts, filesystem is ephemeral, so data may reset on restart.
-
-For real production, switch to PostgreSQL so users, bets, and wallet ledger persist reliably.
 
 ## Google Auth setup
 Set environment variable:
