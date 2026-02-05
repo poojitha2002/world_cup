@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T20 World Cup Betting</title>
+  <link rel="stylesheet" href="/public/styles.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="topbar">
+      <h1>T20 World Cup Virtual Betting</h1>
+      <div id="userBox"></div>
+    </header>
+    <p class="note">Rules: ₹100 virtual coins per match. You can edit until match turns LIVE. When LIVE starts, bets lock immediately.</p>
+    <section id="authSection" class="card hidden">
+      <h2>Login</h2>
+      <div id="googleBtn"></div>
+      <p class="muted">Google sign-in is required.</p>
+    </section>
+    <section>
+      <button id="syncBtn" class="secondary">Refresh Match Status</button>
+      <div id="matchList" class="grid"></div>
+    </section>
+  </main>
+  <script type="module" src="/public/app.js"></script>
+</body>
+</html>

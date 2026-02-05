@@ -1,0 +1,28 @@
+{
+  "users": [],
+  "sessions": [],
+  "matches": [
+    {
+      "id": "t20wc_001",
+      "teamA": "IND",
+      "teamB": "AUS",
+      "startTime": "2026-02-11T13:30:00.000Z",
+      "status": "SCHEDULED",
+      "winnerTeam": null,
+      "settledAt": null,
+      "updatedAt": "2026-02-05T15:42:58.615Z"
+    },
+    {
+      "id": "t20wc_002",
+      "teamA": "PAK",
+      "teamB": "ENG",
+      "startTime": "2026-02-12T13:30:00.000Z",
+      "status": "SCHEDULED",
+      "winnerTeam": null,
+      "settledAt": null,
+      "updatedAt": "2026-02-05T15:42:58.615Z"
+    }
+  ],
+  "bets": [],
+  "transactions": []
+}
